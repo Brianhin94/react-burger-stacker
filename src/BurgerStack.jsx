@@ -4,9 +4,10 @@ import Ingredient from './Ingredient';
 class BurgerStack extends Component {
   render () {
     return (
-      <div>
-      
-      </div>
+     <>
+     <h5>burger here</h5>
+     <div className ='pane' 
+     </>
     )
   }
 };

@@ -4,9 +4,14 @@ import Ingredient from './Ingredient';
 class IngredientList extends Component {
   render () {
     return (
-      <div>
-        {/* map of ingredient with button in unordered list? */}
-        <Ingredient ingredients={this.props.ingredients} />
+      <div className='pane'>
+      <h3> list</h3>
+      <ul className ='stuff-list'>
+      <Ingredient />
+      <Ingredient />
+      <Ingredient />
+      
+      </ul>
       </div>
     )
   }
