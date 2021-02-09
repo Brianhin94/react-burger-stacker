@@ -1,22 +1,52 @@
-import logo from './logo.svg';
 import './App.css';
 import IngredientList from './IngredientList';
-import BurgerPlate from './BurgerPlate';
+import BurgerPane from './BurgerPane';
+import { Component } from 'react';
+
 
 class App extends Component {
+  state={
+    ingredientArray: [
+      {name: 'Kaiser Bun', color: 'saddlebrown'},
+      {name: 'Sesame Bun', color: 'sandybrown'},
+      {name: 'Gluten Free Bun', color: 'peru'},
+      {name: 'Lettuce Wrap', color: 'olivedrab'},
+      {name: 'Beef Patty', color: '#3F250B'},
+      {name: 'Soy Patty', color: '#3F250B'},
+      {name: 'Black Bean Patty', color: '#3F250B'},
+      {name: 'Chicken Patty', color: 'burlywood'},
+      {name: 'Lettuce', color: 'lawngreen'},
+      {name: 'Tomato', color: 'tomato'},
+      {name: 'Bacon', color: 'maroon'},
+      {name: 'Onion', color: 'lightyellow'}
+    ],
+    burgerBits:[]
+    
+  }
+
+  addToStack = (e)=>{
+    let name=e.target.innerText;
+    let color=e.target.style.backgroundColor;
+    let tempArray=this.state.burgerBits;
+    tempArray.unshift({name, color});
+    this.setState({
+      burgerBits: tempArray
+    })
+  }
+
+  clearBurger=()=>{
+
+    this.setState({burgerBits: [] })
+  }
+
   render() {
     return (
-    <main>
-    <h1>Burger Stacker</h1>
-    <div className='panes'>
-    <IngredientList />
-    <BurgerPane />
-    </div>
-    </main>
-    )
+      <div className="App">
+        <IngredientList ingredientArray={this.state.ingredientArray} add={this.addToStack}/>
+        <BurgerPane ingredientArray={this.state.burgerBits} clearBurger={this.clearBurger}/>
+      </div>
+    );
   }
 }
-
-
 
 export default App;

@@ -1,15 +1,28 @@
-import React, { Component } from 'react';
-import Ingredient from './Ingredient';
+import React, { Component } from "react";
+import Ingredient from "./Ingredient";
+
+
 
 class BurgerStack extends Component {
-  render () {
-    return (
-     <>
-     <h5>burger here</h5>
-     <div className ='pane' 
-     </>
-    )
-  }
-};
+    
+
+    render(){
+        let listIngredient=this.props.ingredientArray.map((ingredient,index)=>(
+            
+            
+               <li> <Ingredient name={ingredient.name} color={ingredient.color} key={index}/></li>
+            
+        ));
+        
+        return( 
+            <>
+            {listIngredient}
+            </>
+            
+        )
+        
+    }
+    
+}
 
 export default BurgerStack;
